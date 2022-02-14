@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Ticket {
 
-	
+	//Pour l'affichage de ticket
 	public static void affichageTicket(ArrayList<Produit> consoms, Double total) {
 		System.out.println("\n");
 		System.out.println("----------------------- ticket --------------------------");
@@ -30,6 +30,7 @@ public class Ticket {
  		Scanner s = new Scanner(System.in);
 		String elem = "";
 		
+		//Les produits qui sont déja dans le menu
 		ArrayList<Produit> produits = new ArrayList<Produit>();
 		ArrayList<Produit> consoms = new ArrayList<Produit>();
 		produits.add(new Produit("Pizza",5.3, 1, "Pizza Spicy"));
@@ -41,7 +42,7 @@ public class Ticket {
 		//Total
 		Double total = 0.0;
 		
-//		Calling affichage menu form menu
+                //Appel pour afficher le menu
 		Menu.affichageMenu(produits);
 
 		System.out.println("--------------------------------------------------------------------------------");
@@ -54,7 +55,8 @@ public class Ticket {
 			Produit proChoisi = new Produit();
 			Boolean existe = false;
 			Integer proQuantit = 1;
-
+                        
+                        //Vérifier si la valeur entrée est déja dans le menu
 			if(!elem.equals("stop")) {
 				for(Produit pro: produits) {
 					if(pro.getNom().equals(elem)) {
@@ -69,12 +71,13 @@ public class Ticket {
 			}
 		
 			
-			
+			//Création de l'objet produit
 			if(existe) {
 				total = (Double) (total + proChoisi.getPrix() * proChoisi.getQuantit());
 				consoms.add(new Produit(proChoisi.getNom(), proChoisi.getPrix(),proChoisi.getQuantit(), ""));
 				System.out.println("Produit ajouté  : " + elem + "  |  Quantité ajoutée : "+proChoisi.getQuantit());
 			} else if ( !elem.equals("stop")){
+				// Si le produit n'est pas dans le menu
 				System.out.print("Voulez vous ajouter un produit qui n'est pas dans la list o/n ? : ");
 				elem = s.nextLine();
 				if(elem.equals("o")) {

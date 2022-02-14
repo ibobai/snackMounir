@@ -1,18 +1,19 @@
 
 public class Produit {
 
+	//attribue de la calsse produit
 	public String nom;
 	public Double prix;
 	public Integer quantit;
 	public String desc;
 	
 	
-	
+	//Constructor sans attribues
 	public Produit () {
 		
 	}
 	
-	
+	//Constructor avec les attribues 
 	public Produit(String nom, Double prix, Integer quantit, String desc) {
 		super();
 		this.nom = nom;
@@ -21,6 +22,8 @@ public class Produit {
 		this.desc = desc;
 	}
 	
+
+	//les getters et setters
 	public String getDesc() {
 		return desc;
 	}
